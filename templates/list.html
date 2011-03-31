@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memorable quotes from #grouphugs</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/quotes.css">
+  </head>
+  <body>
+    <h1>Memorable quotes from #grouphugs</h1>
+    {% for quote in quotes %}
+    <h2>{{quote.date|e}} by {{quote.sender|e}}</h2>
+    <pre>
+      {{quote.quote|e|indent(6)}}
+    </pre>
+    {% endfor %}
+  </body>
+</html>
