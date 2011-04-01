@@ -8,7 +8,7 @@
   <body>
     <h1>Memorable quotes from #grouphugs</h1>
     {% for quote in quotes %}
-    <h2>{{quote.date|e}} by {{quote.sender|e}}</h2>
+    <h2>{{quote.date_pretty|e}} by {{quote.sender|e}}</h2>
     <pre>
       {{quote.quote|e|indent(6)}}
     </pre>
