@@ -1,6 +1,7 @@
 ## NB! When running dispatch.wsgi via mod_wsgi, all paths MUST be absolute.
 ##     You might find util.relativePath useful.
 
+CHANNEL='#channel'
 DB = 'database.db'
 TEMPLATES = 'templates/'
 VIRTUALENV =  '/path/to/virtualenv' # needed for dispatch.wsgi only
