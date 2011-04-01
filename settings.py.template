@@ -7,6 +7,11 @@ CHANNEL='#channel'
 DB = relativePath('database.db')
 TEMPLATES = relativePath('templates/')
 
+# Google Analytics (optional)
+# Set to your GA id ('UA-XXXXX-X') to enable.
+# Set to False to disable
+GOOGLE_ANALYTICS=False
+
 # This is only necessary if you are using dispatch.wsgi
 VIRTUALENV =  '/absolute/path/to/virtualenv'
 
