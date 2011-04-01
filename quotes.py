@@ -1,9 +1,7 @@
 import web
 from web.contrib.template import render_jinja
-from util import relativePath, addPrettyDate
-
-DB = relativePath('grouphugs.db')
-TEMPLATES = relativePath('templates/')
+from util import addPrettyDate
+from settings import DB, TEMPLATES
 
 urls = (
     '/.*', 'Quotes',
