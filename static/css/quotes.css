@@ -1,0 +1,39 @@
+article,aside,details,figcaption,figure, footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+header {
+    background-color: #052C6E;
+    padding: 2em;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    color: #EEEEEE;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+
+article {
+    margin-top: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+h2 {
+    margin-left: 2em;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+pre {
+    color: #EEEEEE;
+    background-color: #6A92D4;
+    padding-top: 1em;
+    min-width: 768px;
+    border-radius: 15px;
+}

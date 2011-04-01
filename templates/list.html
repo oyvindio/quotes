@@ -3,15 +3,19 @@
   <head>
     <title>Memorable quotes from #grouphugs</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/quotes.css">
+    <link rel="stylesheet" href="static/css/quotes.css">
   </head>
   <body>
-    <h1>Memorable quotes from #grouphugs</h1>
+    <header>
+      <h1>Memorable quotes from #grouphugs</h1>
+    </header>
     {% for quote in quotes %}
+    <article>
     <h2>{{quote.date_pretty|e}} by {{quote.sender|e}}</h2>
     <pre>
       {{quote.quote|e|indent(6)}}
     </pre>
+    </article>
     {% endfor %}
   </body>
 </html>
