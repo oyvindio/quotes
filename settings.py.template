@@ -1,7 +1,20 @@
 ## NB! When running dispatch.wsgi via mod_wsgi, all paths MUST be absolute.
 ##     You might find util.relativePath useful.
+from util import relativePath
 
+# Required
 CHANNEL='#channel'
-DB = 'database.db'
-TEMPLATES = 'templates/'
-VIRTUALENV =  '/path/to/virtualenv' # needed for dispatch.wsgi only
+DB = relativePath('database.db')
+TEMPLATES = relativePath('templates/')
+
+# This is only necessary if you are using dispatch.wsgi
+VIRTUALENV =  '/absolute/path/to/virtualenv'
+
+# These are needed for deployment via fabric
+# your server
+REMOTE = 'domain.tld'
+# the path to which you want quotes deployed to on your server
+REMOTE_PROJECT_PATH = '/path/to/quotes'
+# the path to your grouphugs database on your server
+# (this is symlinked into the project root on deploy)
+REMOTE_DB_PATH = '/path/to/database.db'
