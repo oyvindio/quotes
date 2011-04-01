@@ -1,3 +1,4 @@
 .ropeproject
 grouphugs.db
 *.pyc
+settings.py
