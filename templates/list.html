@@ -10,8 +10,8 @@
       <h1>Memorable quotes from {{channel|e}}</h1>
     </header>
     {% for quote in quotes %}
-    <article>
-    <h2>{{quote.date_pretty|e}} by {{quote.sender|e}}</h2>
+    <article id="{{quote.date_simple}}">
+    <a href="#{{quote.date_simple}}"><h2>{{quote.date_pretty|e}} by {{quote.sender|e}}</h2></a>
     <pre>
       {{quote.quote|e|indent(6)}}
     </pre>

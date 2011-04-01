@@ -1,6 +1,6 @@
 import web
 from web.contrib.template import render_jinja
-from util import addPrettyDate
+from util import fixDates
 from settings import DB, TEMPLATES, CHANNEL
 
 urls = (
@@ -12,7 +12,7 @@ class Quotes:
         db = web.database(dbn='sqlite', db=DB)
         quotes = db.select('quote', where="channel = '{}'".format(CHANNEL))
         # sort by added date, ascending
-        quotes = sorted([addPrettyDate(quote) for quote in quotes], cmp=lambda this, other: cmp(this['datetime'], other['datetime']), reverse=True)
+        quotes = sorted([fixDates(quote) for quote in quotes], cmp=lambda this, other: cmp(this['datetime'], other['datetime']), reverse=True)
         render = render_jinja(TEMPLATES)
         return render.list(quotes=quotes, channel=CHANNEL)
 

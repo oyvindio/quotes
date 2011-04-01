@@ -37,3 +37,13 @@ pre {
     min-width: 768px;
     border-radius: 15px;
 }
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:active, a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
