@@ -9,7 +9,7 @@ env.dbpath = REMOTE_DB_PATH
 
 def deploy():
     env.release = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-    
+
     run('mkdir -p {path}/releases {path}/packages'.format(**env))
 
     local('git archive --format=tar master | gzip > {release}.tar.gz'.format(**env))
@@ -18,7 +18,7 @@ def deploy():
         '{path}/packages/'.format(**env))
 
     local('rm -vf {release}.tar.gz'.format(**env))
-    
+
     with cd(env.path):
         run('mkdir -p releases/{release}'.format(**env))
         with cd('releases/{release}'.format(**env)):
@@ -35,7 +35,8 @@ def deploy():
     restart()
 
 def restart():
-    sudo('apachectl restart')
+    #sudo('apachectl restart')
+    run('touch {path}/releases/current/dispatch.wsgi'.format(**env))
 
 def rollback():
     with cd('{path}/releases'.format(**env)):
