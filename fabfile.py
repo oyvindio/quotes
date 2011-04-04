@@ -1,6 +1,6 @@
-from fabric.api import cd, env, local, put, run, settings, sudo
+from fabric.api import cd, env, local, put, run, settings
 import datetime
-
+import os.path
 from settings import REMOTE, REMOTE_PROJECT_PATH, REMOTE_DB_PATH
 
 env.hosts = [REMOTE,]
@@ -42,3 +42,6 @@ def rollback():
         run('mv current _previous')
         run('mv previous current')
         run('mv _previous previous')
+
+def clean():
+    local('find {} -name "*.pyc" -delete'.format(os.path.abspath(os.path.dirname(__file__))))
