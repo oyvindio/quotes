@@ -7,7 +7,7 @@ urls = (
     '/.*', 'Quotes',
 )
 
-class Quotes:
+class Quotes(object):
     def GET(self):
         db = web.database(dbn='sqlite', db=DB)
         quotes = db.select('quote', where="channel = '{}'".format(CHANNEL))
