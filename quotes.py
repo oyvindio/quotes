@@ -10,9 +10,8 @@ urls = (
 class Quotes(object):
     def GET(self):
         db = web.database(dbn='sqlite', db=DB)
-        quotes = db.select('quote', where="channel = '{}'".format(CHANNEL))
-        # sort by added date, ascending
-        quotes = sorted([fixDates(quote) for quote in quotes], cmp=lambda this, other: cmp(this['datetime'], other['datetime']), reverse=True)
+        quotes = db.select('quote', where="channel = '{}'".format(CHANNEL), order='date desc')
+        quotes = [fixDates(quote) for quote in quotes]
         render = render_jinja(TEMPLATES)
         return render.list(quotes=quotes, channel=CHANNEL, analytics=GOOGLE_ANALYTICS)
 
