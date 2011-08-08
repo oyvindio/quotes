@@ -36,6 +36,7 @@ pre {
     padding-top: 1em;
     min-width: 768px;
     border-radius: 15px;
+    white-space: pre-wrap;
 }
 
 a {
