@@ -38,13 +38,13 @@
     
     <nav id="pagination">
     {% if page > 1 %}
-      <a href="?p={{page - 1}}">prev</a>
+      <a href="/{{page - 1}}">prev</a>
     {% endif %}
     {% for p in range(pages) %}
-    <a href="?p={{ p+1 }}">{{ p+1 }}</a>
+    <a href="/{{ p+1 }}">{{ p+1 }}</a>
     {% endfor %}
     {% if page <= pages - 1  %}
-      <a href="?p={{page + 1}}">next</a>
+      <a href="/{{page + 1}}">next</a>
     {% endif %}
     </nav>
   </body>

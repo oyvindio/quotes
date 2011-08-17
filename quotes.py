@@ -6,13 +6,15 @@ from util import fixDates
 from settings import DB, TEMPLATES, CHANNEL, GOOGLE_ANALYTICS, PER_PAGE
 
 urls = (
-    '/.*', 'Quotes',
+    '/(.*)', 'Quotes',
 )
 
 class Quotes(object):
-    def GET(self):
-        params = web.input()
-        page = int(params.p) if hasattr(params, 'p') else 1
+    def GET(self, page=None):
+        try:
+            page = int(page) if page else 1
+        except ValueError:
+            page = 1
         offset = (page - 1) * PER_PAGE
         db = web.database(dbn='sqlite', db=DB)
         quote_count = db.query("select count(*) as count from quote where channel='{}'".format(CHANNEL))[0].count
