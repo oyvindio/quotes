@@ -16,6 +16,7 @@ h1 {
     color: #EEEEEE;
     font-family: Helvetica, Arial, sans-serif;
     margin: 0;
+    margin-left: 2.5em;
 }
 
 
@@ -47,4 +48,12 @@ a {
 a:active, a:hover {
     color: #333333;
     text-decoration: underline;
+}
+
+nav#pagination {
+    margin-top: 2em;
+    margin-left: 7em;
+    margin-right: 4em;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #777777;
 }

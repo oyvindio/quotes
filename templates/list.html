@@ -25,27 +25,29 @@
     <header>
       <h1>Memorable quotes from {{channel|e}}</h1>
     </header>
-    {% for quote in quotes %}
+    {% if quotes %}
+      {% for quote in quotes %}
     <article id="{{quote.date_simple}}">
     <a href="#{{quote.date_simple}}"><h2>{{quote.date_pretty|e}} by {{quote.sender|e}}</h2></a>
     <pre>
-      {{quote.quote|e|indent(6)}}
+        {{quote.quote|e|indent(6)}}
     </pre>
     </article>
+
+      {% endfor %}
+    <nav id="pagination">
+      {% if page > 1 %}
+      <a id="previous" href="/{{page - 1}}">prev</a>
+      {% endif %}
+      {{page}} of {{pages}}
+      {% if page <= pages - 1  %}
+      <a id="next" href="/{{page + 1}}">next</a>
+      {% endif %}
+    </nav>
     {% else %}
     <h2>No quotes to show</h2>
-    {% endfor %}
-    
-    <nav id="pagination">
-    {% if page > 1 %}
-      <a href="/{{page - 1}}">prev</a>
     {% endif %}
-    {% for p in range(pages) %}
-    <a href="/{{ p+1 }}">{{ p+1 }}</a>
-    {% endfor %}
-    {% if page <= pages - 1  %}
-      <a href="/{{page + 1}}">next</a>
-    {% endif %}
-    </nav>
+
+    <div id="notify"></div>
   </body>
 </html>
