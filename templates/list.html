@@ -37,11 +37,11 @@
       {% endfor %}
     <nav id="pagination">
       {% if page > 1 %}
-      <a id="previous" href="/{{page - 1}}">prev</a>
+      <a id="previous" href="{{page - 1}}">prev</a>
       {% endif %}
       {{page}} of {{pages}}
       {% if page <= pages - 1  %}
-      <a id="next" href="/{{page + 1}}">next</a>
+      <a id="next" href="{{page + 1}}">next</a>
       {% endif %}
     </nav>
     {% else %}
